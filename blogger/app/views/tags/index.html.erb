@@ -1,11 +1,11 @@
 <h1>All Tags</h1>
 
-<ul id="tags">
-  <% @tag.each do |tag| %>
-   <li>
-     <%= link_to tag.name, tag_path(tag)%>
-   </li>
-  <% end  %>
 <ul>
-
-<%link_to "Create a New Tag", new_atag_path, class:"new_tag" %>
+  <% @tags.each do |tag| %>
+    <li>
+    <%= link_to tag.name, tag_path(tag) %>
+    &nbsp
+    <%= link_to "Delete", tag_path(tag), :method => :destroy %>
+    </li>
+  <% end %>
+</ul>
