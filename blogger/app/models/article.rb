@@ -2,6 +2,10 @@ class Article < ApplicationRecord
     has_many :comments
     has_many :taggings
     has_many :tags, through: :taggings
+    has_one_attached :image
+    validates_acceptance_of :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
+
+
     
     def tag_list=(tags_string)
         tag_names = tags_string.split(",").collect{|s| s.strip.downcase}.uniq
